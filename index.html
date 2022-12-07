@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ike.css">
+    <title>SPA Menu</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav_1">
+            <ul>
+                <li class="menu" id="menu_1">
+                    <a href="#home">HOME</a>
+                </li>
+                <li class="menu" id="menu_2">
+                    <a href="#produk">PRODUK</a>
+                </li> 
+                <li class="menu" id="menu_3">
+                    <a href="#layanan">LAYANAN</a>
+                </li> 
+                <li class="menu" id="menu_4">
+                    <a href="#kontak">KONTAK</a>
+                </li>     
+            </ul>
+        </div>
+    </nav>
+    <div class="content">
+    <div class="home" id="konten_1" style="display: none;">
+        <h4>Home</h4>
+        <p>
+           ini adalah Beranda. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem, minima praesentium fugit voluptates nemo ad ipsa voluptas, unde voluptatem dolores illum ipsam, voluptatum dolor accusamus a rerum odio in officia.
+        </p>
+    </div>
+    <div class="konten" id="konten_2"  style="display: none;">
+        <h4>Menu Produk</h4>
+        <p>
+            Ini adalah produk. Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum et delectus, fugiat magnam animi autem voluptate nesciunt. Fugit, cumque est aliquid necessitatibus eius eum, delectus, dolorem distinctio nesciunt reiciendis qui.
+        </p>
+    </div>
+    <div class="konten" id="konten_3"  style="display: none;">
+        <h4>Menu Layanan</h4>
+        <p>
+            Ini adalah layanan. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate vero quos odio libero ipsam ducimus ex. Rem doloremque ducimus impedit quia ullam! Nobis fuga quas sit sunt nesciunt deserunt temporibus!
+        </p>
+    </div>
+    <div class="konten" id="konten_4"  style="display: none;">
+        <h4>Kontak</h4>
+        <p>
+            Ini adalah kontak. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur asperiores, facere aliquam ad odio voluptate quasi placeat nisi veniam nam perspiciatis pariatur vitae veritatis ullam! Unde earum laboriosam aliquam esse.
+        </p>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $(".menu").click(function(){
+        let id = $(this).prop('id');
+        let split = id.split('_');
+        let id_menu = split[1];
+
+        $(".menu").removeClass('aktif');
+        $("#menu_"+id_menu).addClass('aktif');
+
+        $(".home").slideUp();
+
+        $("#konten_1").slideUp();
+        $("#konten_2").slideUp();
+        $("#konten_3").slideUp();
+        $("#konten_4").slideUp();
+        $("#konten_"+id_menu).slideToggle();
+    });
+});
+</script>
+</body>
+</html>
